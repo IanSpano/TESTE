@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Autenticação Tuya</title>
+<script>
+        window.onload = function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const code = urlParams.get("code");
+            if (code) {
+                document.getElementById("code").innerText = code;
+                document.getElementById("copyBtn").onclick = function() {
+                    navigator.clipboard.writeText(code);
+                    alert("Código copiado! Cole no seu aplicativo.");
+                };
+            }
+        };
+</script>
+</head>
+<body>
+<h2>Autenticação Tuya</h2>
+<p>Seu código de autorização:</p>
+<p id="code" style="font-weight: bold; color: blue;"></p>
+<button id="copyBtn">Copiar Código</button>
+</body>
+</html>
